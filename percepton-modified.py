@@ -1,0 +1,129 @@
+
+=================== Code for Perceptron ===================
+
+# Path setting
+
+import os
+from google.colab import drive
+drive.mount('/content/drive')
+os.chdir('/content/drive/My Drive/Colab Notebooks/AIPR113') 
+os.listdir()
+
+
+# Reading-in the Iris data
+
+import numpy as np
+import pandas as pd
+
+# Reading-in the Iris data
+df = pd.read_csv('iris.csv', header=0)
+y = df.iloc[:, -1].values     # set target values
+y = np.where(y == 'setosa', 0, 1)
+X = df.iloc[:,0:-1].values    # extract all features
+
+print(X.shape)
+print(y.shape)
+
+
+# Split into train set & test set
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1, stratify=y)
+
+
+# Standardizing the features
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+
+# Creating a perceptron model
+
+from tensorflow import keras
+
+model = keras.models.Sequential()
+model.add(keras.layers.Dense(1, activation="sigmoid",input_shape=[4]))
+model.summary()
+
+
+# Compiling the model
+
+model.compile(loss="mse", optimizer="sgd",metrics=["accuracy"])
+
+
+# Training and evaluating the model
+
+history = model.fit(X_train, y_train, epochs=150,
+validation_data=(X_test, y_test))
+
+
+# Learning curves
+
+import matplotlib.pyplot as plt
+pd.DataFrame(history.history).plot(figsize=(8, 5))
+plt.grid(True)
+plt.gca().set_ylim(0, 1.05) # set the vertical range to [0-1.05]
+plt.show()
+
+
+# Model evaluation by test set
+
+model.evaluate(X_test, y_test)
+
+
+# Using the model to make predictions
+
+import numpy as np
+
+y_test_proba=model.predict(X_test)
+print(y_test_proba)
+y_test_pred = np.argmax(y_test_proba, axis=1)
+print(y_test_pred)
+
+from sklearn.metrics import accuracy_score
+print("Test set score: %f" % accuracy_score(y_test,y_test_pred))
+
+
+
+# ****** Modification for multi-class classification ******
+
+# --- modify labeling ----
+
+y1 = np.where(y == 'setosa', 0, 1)
+y2 = np.where(y == 'virginica', 1, 0)
+y = y1 + y2
+
+# y1 = np.where(y == 'versicolor', 0, np.where(y=="setosa", 1, 2))
+
+# --- modify model --- 
+
+model= keras.models.Sequential()
+model.add(keras.)
+model.add(keras.layers.Dense(3, activation="softmax",input_shape=[4]))
+
+
+# --- add one-hot encoding to represent label ---
+
+y_train_oneHot = keras.utils.to_categorical(y_train, 3)
+y_test_oneHot = keras.utils.to_categorical(y_test, 3)
+
+
+# --- modify fit by using one-hot vector labeling ---
+
+history = model.fit(X_train, y_train_oneHot, epochs=300, validation_data=(X_test, y_test_oneHot))
+
+
+# --- modify evaluation ---
+
+model.evaluate(X_test, y_test_oneHot)
+
+
+
+# ****** Modification for using cross entropy loss function ******
+
+# --- modify compile ---
+
+model.compile(loss="categorical_crossentropy",
+optimizer="sgd",metrics=["accuracy"])

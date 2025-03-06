@@ -1,0 +1,113 @@
+a = 1
+b = 2
+c = 3
+d = 4
+
+sum = a + b + c + d 
+
+print('sum=', sum)
+
+
+====================================================
+
+sum = 0
+
+for i in range(5):
+    print('i=', i)
+    sum = i + sum
+
+print('sum=', sum)
+
+
+====================================================
+
+def summation(start, end):
+    sum = 0
+    for i in range(start, end+1, 1):
+        sum = i + sum
+    return sum
+
+sum_1 = summation(1, 4)
+print('sum_1=', sum_1)
+sum_2 = summation(2, 7)
+print('sum_2=', sum_2)
+
+
+====================================================
+
+num_1 = 1
+num_2 = 3
+if num_1 > num_2:
+    print('num_1 is greater than num_2')
+else:
+    print('num_1 is not greater than num_2')
+
+
+====================================================
+
+import numpy as np
+
+np1 = np.array([1, 2, 3])
+np2 = np.array([3, 4, 5])
+np3 = np.dot(np1, np2)
+print('outcome=', np3)
+
+
+====================================================
+
+matrix_1 = np.array([[1, 2, 3], [4, 5, 6]])
+print(matrix_1)
+tensor_1 = np.array([[[1, 2, 3, 1], [4, 5, 6, 4], [7, 8, 9, 7]],[[3, 6, 9, 3], [12, 15, 18, 12], 
+[28, 32, 36, 28]]])
+print(tensor_1)
+
+print(matrix_1.shape)
+print(tensor_1.shape)
+
+
+====================================================
+
+vector = np.arange(10)
+matrix_2 = vector.reshape(2, 5)
+print(matrix_2)
+print(vector)
+vector.resize(2, 5)
+print(vector)
+
+vector_2 = matrix_2.reshape(matrix_2.shape[0]*matrix_2.shape[1])
+print(vector_2)
+vector_3 = matrix_2.flatten()
+print(vector_3)
+
+
+====================================================
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create a column vector t that contains values from 0 to 20 in steps of 0.5
+t = np.arange(0, 20, 0.5)
+
+#Assign values to the parameters
+g = 9.81; m = 68.1; cd = 0.25;
+
+# Evaluate the formula v = f (t)
+v = np.sqrt(g*m/cd)*np.tanh(np.sqrt(g*cd/m)*t)
+
+# plot with open circles
+plt.subplot(211)
+plt.plot(t, v, 'o')
+plt.title('Plot of v versus t')
+plt.xlabel('Values of t')
+plt.ylabel('Values of v')
+plt.grid(1)
+
+# Plot with square green markers connected by green dashed lines
+plt.subplot(212)
+plt.plot(t, v, 's--g')
+plt.xlabel('Values of t')
+plt.ylabel('Values of v')
+
+plt.show()
+
+
