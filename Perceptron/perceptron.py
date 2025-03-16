@@ -1,5 +1,5 @@
 
-=================== Code for Perceptron ===================
+# =================== Code for Perceptron ===================
 
 # Path setting
 
