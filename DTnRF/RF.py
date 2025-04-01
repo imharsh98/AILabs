@@ -19,15 +19,21 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # --- Build a decicion tree ---
 
-from sklearn.tree import DecisionTreeClassifier
-tree_clf = DecisionTreeClassifier(max_depth=2)
-tree_clf.fit(X_train, y_train)
+# from sklearn.tree import DecisionTreeClassifier
+# tree_clf = DecisionTreeClassifier(max_depth=2)
+# tree_clf.fit(X_train, y_train)
 
+from sklearn.ensemble import RandomForestClassifier
+rnd_clf = RandomForestClassifier(n_estimators=500, max_leaf_nodes=16, n_jobs=-1)
+
+rnd_clf.fit(X_train, y_train)
+
+y_pred = rnd_clf.predict(X_test)
 
 # --- Plot the trained tree ---
 
 # from sklearn import tree
-# tree.plot_tree(tree_clf)
+# tree.plot_tree(rnd_clf)
 
 
 # --- Google Drive Path Setting ---
@@ -46,8 +52,8 @@ from PlotClassification import plot_decision_regions
 import numpy as np
 X_combined = np.vstack((X_train, X_test))
 y_combined = np.hstack((y_train, y_test))
-plot_decision_regions(X_combined, y_combined, classifier=tree_clf, test_idx=range(105, 150))
-# plot_decision_regions(X_combined, y_combined, classifier=rnd_clf, test_idx=range(105, 150))
+# plot_decision_regions(X_combined, y_combined, classifier=tree_clf, test_idx=range(105, 150))
+plot_decision_regions(X_combined, y_combined, classifier=rnd_clf, test_idx=range(105, 150))
 plt.xlabel('petal length [standardized]')
 plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
@@ -60,7 +66,7 @@ plt.show()
 # --- Model evaluation ---
 
 from sklearn.metrics import accuracy_score
-y_test_pred=tree_clf.predict(X_test)
+y_test_pred=rnd_clf.predict(X_test)
 accuracy_score(y_test, y_test_pred)
 
 
@@ -96,7 +102,7 @@ f1_score(y_test, y_test_pred, average = 'macro')
 
 # ==================================================================================
 
-# # === Decision tree for iris classification ===
+# === Decision tree for iris classification ===
 
 # from sklearn.ensemble import RandomForestClassifier
 # rnd_clf = RandomForestClassifier(n_estimators=500, max_leaf_nodes=16, n_jobs=-1)

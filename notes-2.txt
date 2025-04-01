@@ -1,0 +1,4 @@
+This is the 2nd part of notes
+
+HW1:
+It is all SVM related. Checking the c-values and the different kernels which are needed.

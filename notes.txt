@@ -1,0 +1,9 @@
+Machine Learning notes:
+
+Structure of a ML program:
+
+ANN.py:
+    load the dataset
+
+
+How to read or understand the output:
