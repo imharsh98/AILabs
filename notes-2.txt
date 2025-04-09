@@ -1,4 +1,18 @@
 This is the 2nd part of notes
 
-HW1:
-It is all SVM related. Checking the c-values and the different kernels which are needed.
+* Tensorflow is a library for developing and training machine learning models.
+
+* Transfer learning is the practice of using a pre-trained model towards a new task.
+
+* Natural language processing (NLP) is a subfield of ML concerned with understanding text.
+
+* R is a programming language for statistical analysis and visualization.
+
+* Keras is a high-level API that's easier for ML beginners, as well as researchers.
+
+What is learning rate, batch size, epochs 
+activation function, loss function (sparse_categorical_crossentropy)
+Numpy, scikit-learn, pytorch (this is derived from torch perhaps)
+There are techniques like fine tuning as well
+
+* numpy seems to be a library which supports mathematical operations on arrays. Pandas seem to be somewhat similar.
