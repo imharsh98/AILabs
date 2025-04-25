@@ -97,7 +97,7 @@ print("Test set score: %f" % accuracy_score(y_test,y_test_pred))
 
 
 
-===============  Implementing a ResNet-34 CNN Using Keras ===============
+# ===============  Implementing a ResNet-34 CNN Using Keras ===============
 
 ## Create a ResidualUnit layer:
 class ResidualUnit(keras.layers.Layer):
@@ -149,7 +149,7 @@ model.summary()
 
 
 
-===============  Use pretrained model from Keras ===============
+# ===============  Use pretrained model from Keras ===============
 
 from sklearn.datasets import load_sample_image
 
@@ -202,7 +202,7 @@ plt.show()
 
 
 
-===============  Fashion MNIST classification using Xception ===============
+# ===============  Fashion MNIST classification using Xception ===============
 
 ## Using Keras to load the dataset
 

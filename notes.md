@@ -10,7 +10,7 @@ DT:
 
 RF:
 
-ANN:
+ANN: multi-layer perceptron
 
 Tips and Tricks:
 
