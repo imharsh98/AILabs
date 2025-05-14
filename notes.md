@@ -32,3 +32,10 @@ It is all SVM related. Checking the c-values and the different kernels which are
 
 HW2:
 Decision Tree and Random Forest related.
+
+## Folders in this repo
+
+references:
+practice: 
+RNN: contains the files related to RNN like class lab
+AudoEncoder: 

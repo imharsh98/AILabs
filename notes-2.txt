@@ -15,4 +15,7 @@ activation function, loss function (sparse_categorical_crossentropy)
 Numpy, scikit-learn, pytorch (this is derived from torch perhaps)
 There are techniques like fine tuning as well
 
+Terms: 
+    unsupervised training, classification and regression, 
+
 * numpy seems to be a library which supports mathematical operations on arrays. Pandas seem to be somewhat similar.

@@ -28,7 +28,7 @@ rnd_clf = RandomForestClassifier(n_estimators=500, max_leaf_nodes=16, n_jobs=-1)
 
 rnd_clf.fit(X_train, y_train)
 
-y_pred = rnd_clf.predict(X_test)
+# y_pred = rnd_clf.predict(X_test)
 
 # --- Plot the trained tree ---
 
