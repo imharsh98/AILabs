@@ -1,0 +1,4 @@
+The mathematical part of Machine Learning is added here:
+
+Linear Algebra is needed
+Vector(Tensor) calculus is needed

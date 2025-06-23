@@ -10,12 +10,15 @@ This is the 2nd part of notes
 
 * Keras is a high-level API that's easier for ML beginners, as well as researchers.
 
-What is learning rate, batch size, epochs 
-activation function, loss function (sparse_categorical_crossentropy)
-Numpy, scikit-learn, pytorch (this is derived from torch perhaps)
-There are techniques like fine tuning as well
+* What is learning rate, batch size, epochs - epochs corresponds to iterations/loops, batch size needs to be checked, 
+
+* activation function, loss function (sparse_categorical_crossentropy)
+
+* Numpy, scikit-learn, pytorch (this is derived from torch perhaps)
+
+* There are techniques like fine tuning as well (Fine tuning is something which helps in adapting some general AI model to fit the individual use case. How to do that needs to be understood.)
 
 Terms: 
     unsupervised training, classification and regression, 
 
-* numpy seems to be a library which supports mathematical operations on arrays. Pandas seem to be somewhat similar.
+* numpy seems to be a library which supports mathematical operations on arrays. Pandas seems to be somewhat similar.
